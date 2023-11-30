@@ -2,7 +2,6 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -11,17 +10,17 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) throws IOException {
 
-        /*int id;
+        int id;
         String puesto;
         ArrayList<Trabajador> plantilla = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Número de empleados: ");
-        int num = scanner.nextInt();
+        int num = Integer.parseInt(scanner.nextLine());
 
         for(int i=0; i<num; i++){
             System.out.println("Identificador: ");
-            id = scanner.nextInt();
+            id = Integer.parseInt(scanner.nextLine());
             System.out.println("Puesto: ");
             puesto = scanner.nextLine();
             plantilla.add(new Trabajador(id,puesto));
@@ -29,7 +28,7 @@ public class Main {
 
         Iterator<Trabajador> iterator = plantilla.iterator();
         Trabajador actual;
-        String fueraHorario = "Fuera de horario: ";
+        String fueraHorario = "";
         int time = LocalDateTime.now().getHour();
         while (iterator.hasNext()) {
             actual = iterator.next();
@@ -37,14 +36,14 @@ public class Main {
                 fueraHorario += actual.getId();
             }
         }
-*/
+
        String jenkinsfile = "pipeline {\n" +
                 "    agent any\n" +
                 "    stages {\n" +
                 "        stage('Ejemplo') {\n" +
                 "            steps {\n" +
                 "                script {\n" +
-                "                    echo \"Fuera de horario: Pepe\"\n" +
+                "                    echo \"Fuera de horario: "+fueraHorario+"\"\n" +
                 "                }\n" +
                 "            }\n" +
                 "        }\n" +
