@@ -4,7 +4,7 @@ pipeline {
         stage('Ejemplo') {
             steps {
                 script {
-                    echo "Fuera de horario: "
+                    echo "Fuera de horario: CEO Daniel"
                 }
             }
         }

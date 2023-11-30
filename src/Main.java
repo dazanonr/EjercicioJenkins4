@@ -10,8 +10,9 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) throws IOException {
 
-        int id;
-        String puesto;
+        String id, puesto;
+        int sueldo, hora;
+
         ArrayList<Trabajador> plantilla = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
 
@@ -20,20 +21,24 @@ public class Main {
 
         for(int i=0; i<num; i++){
             System.out.println("Identificador: ");
-            id = Integer.parseInt(scanner.nextLine());
+            id = scanner.nextLine();
             System.out.println("Puesto: ");
             puesto = scanner.nextLine();
-            plantilla.add(new Trabajador(id,puesto));
+            System.out.println("Sueldo: ");
+            sueldo = Integer.parseInt(scanner.nextLine());
+            System.out.println("Hora de entrada: ");
+            hora = Integer.parseInt(scanner.nextLine());
+
+            plantilla.add(new Trabajador(id,puesto,sueldo,hora));
         }
 
         Iterator<Trabajador> iterator = plantilla.iterator();
         Trabajador actual;
         String fueraHorario = "";
-        int time = LocalDateTime.now().getHour();
         while (iterator.hasNext()) {
             actual = iterator.next();
-            if(time < actual.getEntrada() || time > actual.getSalida()){
-                fueraHorario += actual.getId();
+            if(!actual.enHorario()){
+                fueraHorario += actual.getPuesto()+ " " + actual.getId();
             }
         }
 
