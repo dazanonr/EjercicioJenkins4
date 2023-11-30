@@ -4,7 +4,7 @@ pipeline {
         stage('Ejemplo') {
             steps {
                 script {
-                    echo "Fuera de horario: CEO Daniel"
+                    echo "Fuera de horario: CEO Daniel, Jefe Gustavo, Ingeniero María, Analista Paco, Scrum Master Gema, RRHH Jorge, "
                 }
             }
         }

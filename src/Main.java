@@ -38,7 +38,7 @@ public class Main {
         while (iterator.hasNext()) {
             actual = iterator.next();
             if(!actual.enHorario()){
-                fueraHorario += actual.getPuesto()+ " " + actual.getId();
+                fueraHorario += actual.getPuesto()+ " " + actual.getId() + ", ";
             }
         }
 
